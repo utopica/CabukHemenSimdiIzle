@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.Persist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.Infrastructure", "Infrastructure\CabukHemenSimdiIzle.Infrastructure\CabukHemenSimdiIzle.Infrastructure.csproj", "{2D16C6BD-A0DE-44D5-BDBF-C547318EEFE4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9B3B2B94-0D4B-4ECC-864A-925FEDCFF4EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.MVC", "Presentation\CabukHemenSimdiIzle.MVC\CabukHemenSimdiIzle.MVC.csproj", "{EE8CEA1E-AA03-4FA4-AF8F-943070659E6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,10 @@ Global
 		{2D16C6BD-A0DE-44D5-BDBF-C547318EEFE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D16C6BD-A0DE-44D5-BDBF-C547318EEFE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D16C6BD-A0DE-44D5-BDBF-C547318EEFE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8CEA1E-AA03-4FA4-AF8F-943070659E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8CEA1E-AA03-4FA4-AF8F-943070659E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8CEA1E-AA03-4FA4-AF8F-943070659E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8CEA1E-AA03-4FA4-AF8F-943070659E6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +54,7 @@ Global
 		{0E80C6C6-AF31-4C45-A906-B2D4BFEC4C63} = {CD4104F1-DA62-464A-A69A-7EFE4BDBA3C7}
 		{5D521451-6649-4A01-B28D-A26E4F9E84EA} = {B26B25C2-8CA4-49FA-8437-AC18873BB875}
 		{2D16C6BD-A0DE-44D5-BDBF-C547318EEFE4} = {B26B25C2-8CA4-49FA-8437-AC18873BB875}
+		{EE8CEA1E-AA03-4FA4-AF8F-943070659E6B} = {9B3B2B94-0D4B-4ECC-864A-925FEDCFF4EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1ECEA51C-6089-435A-9D78-44152FAE6F8F}
