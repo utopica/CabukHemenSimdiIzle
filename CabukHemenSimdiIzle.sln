@@ -3,9 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CD4104F1-DA62-464A-A69A-7EFE4BDBA3C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.Domain", "Core\CabukHemenSimdiIzle.Domain\CabukHemenSimdiIzle.Domain.csproj", "{03635B6F-C421-4CD6-9EE3-418D3E9EFD71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.Application", "Core\CabukHemenSimdiIzle.Application\CabukHemenSimdiIzle.Application.csproj", "{0E80C6C6-AF31-4C45-A906-B2D4BFEC4C63}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03635B6F-C421-4CD6-9EE3-418D3E9EFD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03635B6F-C421-4CD6-9EE3-418D3E9EFD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03635B6F-C421-4CD6-9EE3-418D3E9EFD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03635B6F-C421-4CD6-9EE3-418D3E9EFD71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E80C6C6-AF31-4C45-A906-B2D4BFEC4C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E80C6C6-AF31-4C45-A906-B2D4BFEC4C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E80C6C6-AF31-4C45-A906-B2D4BFEC4C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E80C6C6-AF31-4C45-A906-B2D4BFEC4C63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{03635B6F-C421-4CD6-9EE3-418D3E9EFD71} = {CD4104F1-DA62-464A-A69A-7EFE4BDBA3C7}
+		{0E80C6C6-AF31-4C45-A906-B2D4BFEC4C63} = {CD4104F1-DA62-464A-A69A-7EFE4BDBA3C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1ECEA51C-6089-435A-9D78-44152FAE6F8F}
