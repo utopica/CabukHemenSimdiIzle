@@ -26,6 +26,9 @@ namespace CabukHemenSimdiIzle.Persistence.Contexts
             modelBuilder.Ignore<Director>();
             modelBuilder.Ignore<Comment>();
             modelBuilder.Ignore<Movie>();
+            modelBuilder.Ignore<CastMovie>();
+            modelBuilder.Ignore<DirectorMovie>();
+            modelBuilder.Ignore<ScenaristMovie>();
 
             base.OnModelCreating(modelBuilder);
         }

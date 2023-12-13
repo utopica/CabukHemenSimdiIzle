@@ -20,7 +20,7 @@ namespace CabukHemenSimdiIzle.Persistence.Contexts
 
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-            var connectionString = configuration.GetSection("YetgenPostgreSQLDB???????????").Value;
+            var connectionString = configuration.GetSection("YetgenPostgreSQLDB").Value;
 
             optionsBuilder.UseNpgsql(connectionString);
 

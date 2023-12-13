@@ -17,7 +17,7 @@ namespace CabukHemenSimdiIzle.Domain.Entities
         public string Language { get; set; }
         public Genre Genre { get; set; }
         public decimal? ImdbRating { get; set; }
-        public bool HasBeenWatched { get; set; }
+        public bool? HasBeenWatched { get; set; }
         public string AgeRestriction { get; set; }
 
         public Int32 Duration { get; set; }

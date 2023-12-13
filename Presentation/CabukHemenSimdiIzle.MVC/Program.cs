@@ -1,9 +1,29 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using CabukHemenSimdiIzle.Domain.Entities.Identity;
+using CabukHemenSimdiIzle.Persistence.Contexts;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Adding DbContext
+
+var connectionString = builder.Configuration.GetSection("YetgenPostgreSQLDB").Value;
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseNpgsql(connectionString);
+});
+builder.Services.AddDbContext<IdentityDbContext>(options =>
+{
+    options.UseNpgsql(connectionString);
+});
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
