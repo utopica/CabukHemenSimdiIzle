@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.Infrast
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.Persistence", "Infrastructure\CabukHemenSimdiIzle.Persistence\CabukHemenSimdiIzle.Persistence.csproj", "{E037CF21-A781-42FC-8792-58E24E5138FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{6BFAF88D-89CF-486C-860C-881DE0EFAC53}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{6BFAF88D-89CF-486C-860C-881DE0EFAC53}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabukHemenSimdiIzle.MVC", "Presentation\CabukHemenSimdiIzle.MVC\CabukHemenSimdiIzle.MVC.csproj", "{90B82EC4-EC12-4D33-A27C-2141E5D0F036}"
 EndProject
