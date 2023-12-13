@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CabukHemenSimdiIzle.Domain.Entities
 {
-    public class Cast
+    public class Cast:Person
     {
-        public List<Content> ActedContents { get; set; } //?????????
-
+        public ICollection<CastMovie> CastMovies { get; set; }
+   
     }
 }

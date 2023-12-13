@@ -9,7 +9,8 @@ namespace CabukHemenSimdiIzle.Domain.Entities
 {
     public class Scenarist : Person
     {
-        public List<Content> WritedContents { get; set; } //?????????
+       
+       public ICollection<ScenaristMovie> ScenaristMovies { get; set; }
 
     }
 }
