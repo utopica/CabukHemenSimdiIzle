@@ -2,39 +2,30 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CabukHemenSimdiIzle.Domain.Entities.Identity;
 using CabukHemenSimdiIzle.Persistence.Contexts;
-using CabukHemenSimdiIzle.Persistence;
-using CabukHemenSimdiIzle.Application;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddControllersWithViews();
-
-// Add services to the container.
-builder.Services
-    .AddControllersWithViews()
-    .AddNToastNotifyToastr();
-
-builder.Services.AddOptions();
-
-builder.Services.AddPersistenceServices();
-builder.Services.AddApplicationServices();
+builder.Services.AddControllersWithViews();
 
 //Adding DbContext
 
 var connectionString = builder.Configuration.GetSection("YetgenPostgreSQLDB").Value;
 
-
-builder.Services.AddDbContext<IdentityDbContext>(options =>
-{
-    options.UseNpgsql(connectionString);
-});
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
+builder.Services.AddDbContext<IdentityDbContext>(options =>
+{
+    options.UseNpgsql(connectionString);
+});
 
-
+// Add services to the container.
+builder.Services
+    .AddControllersWithViews()
+    .AddNToastNotifyToastr();
 
 
 //Add Identity System
@@ -54,7 +45,7 @@ builder.Services.AddIdentity<User, Role>(options =>
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@$";
     options.User.RequireUniqueEmail = true;
 
-}).AddEntityFrameworkStores<IdentityDbContext>()
+}).AddEntityFrameworkStores<AppDbContext>()
     .AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
 
 builder.Services.Configure<SecurityStampValidatorOptions>(options =>
@@ -101,8 +92,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

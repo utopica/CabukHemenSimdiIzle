@@ -13,10 +13,8 @@ namespace CabukHemenSimdiIzle.Persistence.Contexts
 {
     public class IdentityDbContext : IdentityDbContext<User, Role, Guid>
     {
-        public IdentityDbContext(DbContextOptions<IdentityDbContext> dbContextOptions) : base(dbContextOptions) 
-        
+        public IdentityDbContext(DbContextOptions options) : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
