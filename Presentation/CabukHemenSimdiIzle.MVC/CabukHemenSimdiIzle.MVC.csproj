@@ -6,11 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NToastNotify" Version="8.0.0" />
+    <PackageReference Include="Resend" Version="0.0.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,4 +22,12 @@
     <ProjectReference Include="..\..\Infrastructure\CabukHemenSimdiIzle.Persistence\CabukHemenSimdiIzle.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Auth\" />
+    <None Remove="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Auth\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
 </Project>
