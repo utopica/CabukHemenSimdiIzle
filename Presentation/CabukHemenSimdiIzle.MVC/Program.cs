@@ -2,12 +2,32 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CabukHemenSimdiIzle.Domain.Entities.Identity;
 using CabukHemenSimdiIzle.Persistence.Contexts;
+using Resend;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+
+// Add services to the container.
+builder.Services
+    .AddControllersWithViews()
+    .AddNToastNotifyToastr();
+
+//Email auth system
+
+
+builder.Services.AddOptions();
+builder.Services.AddHttpClient<ResendClient>();
+builder.Services.Configure<ResendClientOptions>(o =>
+{
+    o.ApiToken = "re_U8CSgNW6_4pyb4BcXZTRj27wTQ9MpBaQu";
+});
+builder.Services.AddTransient<IResend, ResendClient>();
+
 
 //Adding DbContext
 
@@ -22,10 +42,6 @@ builder.Services.AddDbContext<IdentityDbContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
-// Add services to the container.
-builder.Services
-    .AddControllersWithViews()
-    .AddNToastNotifyToastr();
 
 
 //Add Identity System
