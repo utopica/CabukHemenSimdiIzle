@@ -8,6 +8,12 @@ using Resend;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services
+    .AddControllersWithViews()
+    .AddNToastNotifyToastr();
+
+
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 
@@ -61,7 +67,7 @@ builder.Services.AddIdentity<User, Role>(options =>
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@$";
     options.User.RequireUniqueEmail = true;
 
-}).AddEntityFrameworkStores<AppDbContext>()
+}).AddEntityFrameworkStores<IdentityDbContext>()
     .AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
 
 builder.Services.Configure<SecurityStampValidatorOptions>(options =>
@@ -103,11 +109,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
