@@ -21,13 +21,14 @@ namespace CabukHemenSimdiIzle.Domain.Entities
         public string AgeRestriction { get; set; }
 
         public Int32 Duration { get; set; }
-
+        
         public ICollection<CastMovie> CastMovies { get; set; }
         public ICollection<DirectorMovie> DirectorMovies { get; set; }
         public ICollection<ScenaristMovie> ScenaristMovies { get; set; }
         public ICollection<Comment> Comments { get; set; }
-       // public Guid CommentId { get; set; }          
-       
+
+        // public Guid CommentId { get; set; }          
+        //public Guid DirectorId { get; set; }
 
     }
 }

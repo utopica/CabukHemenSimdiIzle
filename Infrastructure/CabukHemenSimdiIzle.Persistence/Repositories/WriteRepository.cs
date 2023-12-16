@@ -11,15 +11,11 @@ using System.Threading.Tasks;
 
 namespace CabukHemenSimdiIzle.Persistence.Repositories
 {
-    public class WriteRepository<T> : IWriteRepository<T> where T : EntityBase<Guid>
+    public class WriteRepository<T> : Repository<T>, IWriteRepository<T> where T : EntityBase<Guid>
     {
-        private readonly AppDbContext _context;
-
-        public WriteRepository(AppDbContext context)
+        public WriteRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
-        public DbSet<T> Table => _context.Set<T>();
 
         public async Task<bool> AddAsync(T model)
         {

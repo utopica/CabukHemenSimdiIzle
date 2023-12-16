@@ -19,4 +19,8 @@
     <ProjectReference Include="..\..\Core\CabukHemenSimdiIzle.Domain\CabukHemenSimdiIzle.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\Comment\" />
+  </ItemGroup>
+
 </Project>

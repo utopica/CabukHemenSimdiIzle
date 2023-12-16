@@ -12,7 +12,7 @@ namespace CabukHemenSimdiIzle.Persistence.Repositories
 {
     public class Repository<T> : IRepository<T> where T : EntityBase<Guid>
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _context;
 
         public Repository(AppDbContext context)
         {
