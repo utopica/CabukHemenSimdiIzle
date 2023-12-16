@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using CabukHemenSimdiIzle.Domain.Entities.Identity;
 using CabukHemenSimdiIzle.Persistence.Contexts;
 using Resend;
-
+using FluentValidation.AspNetCore;
+using CabukHemenSimdiIzle.MVC.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +13,15 @@ builder.Services
     .AddControllersWithViews()
     .AddNToastNotifyToastr();
 
+builder.Services.AddControllersWithViews().AddFluentValidation(x => {
+    x.RegisterValidatorsFromAssemblyContaining<AuthRegisterValidator>();
+    x.RegisterValidatorsFromAssemblyContaining<AuthLoginValidator>();
+});
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 
 
 // Add services to the container.
