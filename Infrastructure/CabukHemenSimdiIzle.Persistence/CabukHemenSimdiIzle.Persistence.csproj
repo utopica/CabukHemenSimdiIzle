@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\CabukHemenSimdiIzle.Application\CabukHemenSimdiIzle.Application.csproj" />
     <ProjectReference Include="..\..\Core\CabukHemenSimdiIzle.Domain\CabukHemenSimdiIzle.Domain.csproj" />
   </ItemGroup>
 
