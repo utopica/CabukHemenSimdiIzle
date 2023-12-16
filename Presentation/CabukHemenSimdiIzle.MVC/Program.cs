@@ -5,6 +5,8 @@ using CabukHemenSimdiIzle.Persistence.Contexts;
 using Resend;
 using FluentValidation.AspNetCore;
 using CabukHemenSimdiIzle.MVC.Validators;
+using CabukHemenSimdiIzle.Application.Repositories;
+using CabukHemenSimdiIzle.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,6 +55,17 @@ builder.Services.AddDbContext<IdentityDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
+
+// Other Dependency Injections 
+
+builder.Services.AddScoped<IDirectorReadRepository,DirectorReadRepository>();
+builder.Services.AddScoped<IDirectorWriteRepository, DirectorWriteRepository>();
+
+builder.Services.AddScoped<IScenaristReadRepository,ScenaristReadRepository>();
+builder.Services.AddScoped<IScenaristWriteRepository,ScenaristWriteRepository>();
+
+builder.Services.AddScoped<ICastReadRepository,CastReadRepository>();
+builder.Services.AddScoped<ICastWriteRepository,CastWriteRepository>();
 
 
 
