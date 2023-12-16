@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CabukHemenSimdiIzle.Persistence.Contexts
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
 
         public DbSet<Movie> Movies { get; set; }

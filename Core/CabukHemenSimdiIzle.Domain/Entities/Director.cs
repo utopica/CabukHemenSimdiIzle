@@ -9,7 +9,6 @@ namespace CabukHemenSimdiIzle.Domain.Entities
 {
     public class Director : Person
     {
-       
         public ICollection<DirectorMovie> DirectorMovies { get; set; }
 
     }
