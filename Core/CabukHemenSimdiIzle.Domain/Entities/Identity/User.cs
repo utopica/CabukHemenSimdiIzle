@@ -17,7 +17,7 @@ namespace CabukHemenSimdiIzle.Domain.Entities.Identity
         public DateTimeOffset? BirthDate { get; set; }
         public Gender Gender { get; set; }
 
-        public UserSetting UserSetting { get; set; }
+       public UserSetting UserSetting { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
         public string CreatedByUserId { get; set; }

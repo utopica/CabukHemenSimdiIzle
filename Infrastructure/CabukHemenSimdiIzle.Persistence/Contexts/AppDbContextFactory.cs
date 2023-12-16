@@ -20,7 +20,8 @@ namespace CabukHemenSimdiIzle.Persistence.Contexts
 
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-            var connectionString = configuration.GetSection("YetgenPostgreSQLDB").Value;
+            //            var connectionString = configuration.GetSection("YetgenPostgreSQLDB").Value;
+            var connectionString = "Server=91.151.83.102;Port=5432;Database=CabukHemenSimdiFilmIzle;User Id=ahmetkokteam;Password=obXRMG*U6rJ4R0cbHszpgEuFd;";
 
 
             optionsBuilder.UseNpgsql(connectionString);

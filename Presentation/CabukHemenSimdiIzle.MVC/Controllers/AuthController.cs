@@ -13,15 +13,15 @@ public class AuthController : Controller
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IToastNotification _toastNotification;
-    private readonly IResend _resend;
+    //private readonly IResend _resend;
     private readonly IWebHostEnvironment _environment;
 
-    public AuthController(UserManager<User> userManager, IToastNotification toastNotification, IResend resend, SignInManager<User> signInManager, IWebHostEnvironment environment)
+    public AuthController(UserManager<User> userManager, IToastNotification toastNotification, SignInManager<User> signInManager, IWebHostEnvironment environment)
     {
         _userManager = userManager;
         _toastNotification = toastNotification;
         _signInManager = signInManager;
-        _resend = resend;
+      //  _resend = resend;
         _environment = environment;
     }
 
@@ -75,7 +75,7 @@ public class AuthController : Controller
         _toastNotification.AddSuccessToastMessage("You've successfully registered to the application.");
 
         // Building the button's URL
-        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user); // token, UserId
+      /*  var token = await _userManager.GenerateEmailConfirmationTokenAsync(user); // token, UserId
 
         token = HttpUtility.UrlEncode(token);
 
@@ -88,26 +88,26 @@ public class AuthController : Controller
 
         var htmlText = await System.IO.File.ReadAllTextAsync(fullPathToHtml);
 
-        var title = "Seri Film İzle - E-Posta Doğrulama";
+        var title = "Seri Köz Getir - E-Posta Doğrulama";
 
         // Title
         htmlText = htmlText.Replace("{{Title}}", title);
 
         // Description
         htmlText = htmlText.Replace("{{Description}}",
-            "Film Sitemize hoş geldiniz. E-Posta adresinizi doğrulamak için lütfen aşağıdaki \"Onayla\" butonuna tıklayınız.");
+            "Uygulamamıza hoş geldiniz. E-Posta adresinizi doğrulamak için lütfen aşağıdaki \"Onayla\" butonuna tıklayınız.");
 
         htmlText = htmlText.Replace("{{ButtonLink}}", buttonLink);
 
         htmlText = htmlText.Replace("{{ButtonText}}", "Onayla");
 
         var message = new EmailMessage();
-        message.From = "ahmetbalaman073@gmail.com";
+        message.From = "alper.tunga@yazilim.academy";
         message.To.Add(user.Email);
         message.Subject = title;
         message.HtmlBody = htmlText;
 
-        await _resend.EmailSendAsync(message);
+      //  await _resend.EmailSendAsync(message);*/
 
         return RedirectToAction(nameof(Login));
     }

@@ -2,38 +2,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CabukHemenSimdiIzle.Domain.Entities.Identity;
 using CabukHemenSimdiIzle.Persistence.Contexts;
-using Resend;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services
-    .AddControllersWithViews()
-    .AddNToastNotifyToastr();
-
-
-// Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
-
-// Add services to the container.
-builder.Services
-    .AddControllersWithViews()
-    .AddNToastNotifyToastr();
-
-//Email auth system
-
-
-builder.Services.AddOptions();
-builder.Services.AddHttpClient<ResendClient>();
-builder.Services.Configure<ResendClientOptions>(o =>
-{
-    o.ApiToken = "re_U8CSgNW6_4pyb4BcXZTRj27wTQ9MpBaQu";
-});
-builder.Services.AddTransient<IResend, ResendClient>();
-
 
 //Adding DbContext
 
@@ -48,6 +22,10 @@ builder.Services.AddDbContext<IdentityDbContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
+// Add services to the container.
+builder.Services
+    .AddControllersWithViews()
+    .AddNToastNotifyToastr();
 
 
 //Add Identity System
@@ -67,7 +45,7 @@ builder.Services.AddIdentity<User, Role>(options =>
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@$";
     options.User.RequireUniqueEmail = true;
 
-}).AddEntityFrameworkStores<IdentityDbContext>()
+}).AddEntityFrameworkStores<AppDbContext>()
     .AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
 
 builder.Services.Configure<SecurityStampValidatorOptions>(options =>
@@ -109,14 +87,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
