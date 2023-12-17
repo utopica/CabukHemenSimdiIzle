@@ -6,6 +6,7 @@ using Resend;
 using FluentValidation.AspNetCore;
 using CabukHemenSimdiIzle.MVC.Validators;
 using CabukHemenSimdiIzle.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,13 +33,13 @@ builder.Services
 //Email auth system
 
 
-builder.Services.AddOptions();
-builder.Services.AddHttpClient<ResendClient>();
-builder.Services.Configure<ResendClientOptions>(o =>
-{
-    o.ApiToken = "re_U8CSgNW6_4pyb4BcXZTRj27wTQ9MpBaQu";
-});
-builder.Services.AddTransient<IResend, ResendClient>();
+//builder.Services.AddOptions();
+//builder.Services.AddHttpClient<ResendClient>();
+//builder.Services.Configure<ResendClientOptions>(o =>
+//{
+//    o.ApiToken = "re_U8CSgNW6_4pyb4BcXZTRj27wTQ9MpBaQu";
+//});
+//builder.Services.AddTransient<IResend, ResendClient>();
 
 
 //Adding DbContext

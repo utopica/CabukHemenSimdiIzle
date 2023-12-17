@@ -13,15 +13,15 @@ public class AuthController : Controller
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IToastNotification _toastNotification;
-    private readonly IResend _resend;
+    //private readonly IResend _resend;
     private readonly IWebHostEnvironment _environment;
 
-    public AuthController(UserManager<User> userManager, IToastNotification toastNotification,IResend resend, SignInManager<User> signInManager, IWebHostEnvironment environment)
+    public AuthController(UserManager<User> userManager, IToastNotification toastNotification, SignInManager<User> signInManager, IWebHostEnvironment environment)
     {
         _userManager = userManager;
         _toastNotification = toastNotification;
         _signInManager = signInManager;
-        _resend = resend;
+        //_resend = resend;
         _environment = environment;
     }
 
@@ -75,7 +75,7 @@ public class AuthController : Controller
         _toastNotification.AddSuccessToastMessage("You've successfully registered to the application.");
 
         // Building the button's URL
-       var token = await _userManager.GenerateEmailConfirmationTokenAsync(user); // token, UserId
+       /*var token = await _userManager.GenerateEmailConfirmationTokenAsync(user); // token, UserId
 
         token = HttpUtility.UrlEncode(token);
 
@@ -108,6 +108,7 @@ public class AuthController : Controller
         message.HtmlBody = htmlText;
 
         await _resend.EmailSendAsync(message);
+       */
 
         return RedirectToAction(nameof(Login));
     }
@@ -179,6 +180,6 @@ public class AuthController : Controller
 
         _toastNotification.AddSuccessToastMessage($"Welcome {user.UserName}!");
 
-        return RedirectToAction("Index", controllerName: "Students");
+        return RedirectToAction("Index", controllerName: "Home");
     }
 }
