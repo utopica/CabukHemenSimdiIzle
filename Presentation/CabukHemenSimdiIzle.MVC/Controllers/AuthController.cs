@@ -21,7 +21,6 @@ public class AuthController : Controller
         _userManager = userManager;
         _toastNotification = toastNotification;
         _signInManager = signInManager;
-        //_resend = resend;
         _environment = environment;
     }
 
@@ -30,7 +29,7 @@ public class AuthController : Controller
     {
         if (User.Identity.IsAuthenticated)
         {
-            return RedirectToAction(nameof(Index), "Home");
+            return RedirectToAction(nameof(Login), "Auth");
         }
 
         var registerViewModel = new AuthRegisterVM();
@@ -75,40 +74,39 @@ public class AuthController : Controller
         _toastNotification.AddSuccessToastMessage("You've successfully registered to the application.");
 
         // Building the button's URL
-       /*var token = await _userManager.GenerateEmailConfirmationTokenAsync(user); // token, UserId
+        /*var token = await _userManager.GenerateEmailConfirmationTokenAsync(user); // token, UserId
 
-        token = HttpUtility.UrlEncode(token);
+         token = HttpUtility.UrlEncode(token);
 
-        var buttonLink = $"https://localhost:7206/Auth/VerifyEmail?email={user.Email}&token={token}";
+         var buttonLink = $"https://localhost:7206/Auth/VerifyEmail?email={user.Email}&token={token}";
 
-        //
-        var wwwRootPath = _environment.WebRootPath;
+         //
+         var wwwRootPath = _environment.WebRootPath;
 
-        var fullPathToHtml = Path.Combine(wwwRootPath, "email-templates", "verify-email.html");
+         var fullPathToHtml = Path.Combine(wwwRootPath, "email-templates", "verify-email.html");
 
-        var htmlText = await System.IO.File.ReadAllTextAsync(fullPathToHtml);
+         var htmlText = await System.IO.File.ReadAllTextAsync(fullPathToHtml);
 
-        var title = "Seri Film İzle - E-Posta Doğrulama";
+         var title = "Seri Film İzle - E-Posta Doğrulama";
 
-        // Title
-        htmlText = htmlText.Replace("{{Title}}", title);
+         // Title
+         htmlText = htmlText.Replace("{{Title}}", title);
 
-        // Description
-        htmlText = htmlText.Replace("{{Description}}",
-            "Film Sitemize hoş geldiniz. E-Posta adresinizi doğrulamak için lütfen aşağıdaki \"Onayla\" butonuna tıklayınız.");
+         // Description
+         htmlText = htmlText.Replace("{{Description}}",
+             "Film Sitemize hoş geldiniz. E-Posta adresinizi doğrulamak için lütfen aşağıdaki \"Onayla\" butonuna tıklayınız.");
 
-        htmlText = htmlText.Replace("{{ButtonLink}}", buttonLink);
+         htmlText = htmlText.Replace("{{ButtonLink}}", buttonLink);
 
-        htmlText = htmlText.Replace("{{ButtonText}}", "Onayla");
+         htmlText = htmlText.Replace("{{ButtonText}}", "Onayla");
 
-        var message = new EmailMessage();
-        message.From = "ahmetbalaman073@gmail.com";
-        message.To.Add(user.Email);
-        message.Subject = title;
-        message.HtmlBody = htmlText;
+         var message = new EmailMessage();
+         message.From = "ahmetbalaman073@gmail.com";
+         message.To.Add(user.Email);
+         message.Subject = title;
+         message.HtmlBody = htmlText;
 
-        await _resend.EmailSendAsync(message);
-       */
+         await _resend.EmailSendAsync(message);*/
 
         return RedirectToAction(nameof(Login));
     }
@@ -180,6 +178,6 @@ public class AuthController : Controller
 
         _toastNotification.AddSuccessToastMessage($"Welcome {user.UserName}!");
 
-        return RedirectToAction("Index", controllerName: "Home");
+        return RedirectToAction("Index", controllerName: "Students");
     }
 }
