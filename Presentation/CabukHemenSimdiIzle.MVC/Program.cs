@@ -5,9 +5,7 @@ using CabukHemenSimdiIzle.Persistence.Contexts;
 using Resend;
 using FluentValidation.AspNetCore;
 using CabukHemenSimdiIzle.MVC.Validators;
-using CabukHemenSimdiIzle.Application.Repositories;
-using CabukHemenSimdiIzle.Persistence.Repositories;
-
+using CabukHemenSimdiIzle.Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,7 +18,7 @@ builder.Services.AddControllersWithViews().AddFluentValidation(x => {
     x.RegisterValidatorsFromAssemblyContaining<AuthLoginValidator>();
 });
 
-
+builder.Services.AddRepositoryServices();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -56,16 +54,10 @@ builder.Services.AddDbContext<IdentityDbContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
-// Other Dependency Injections 
+var domain = builder.Environment.IsDevelopment() ? "https://localhost:7206" : "https://your-production-domain.com";
 
-builder.Services.AddScoped<IDirectorReadRepository,DirectorReadRepository>();
-builder.Services.AddScoped<IDirectorWriteRepository, DirectorWriteRepository>();
-
-builder.Services.AddScoped<IScenaristReadRepository,ScenaristReadRepository>();
-builder.Services.AddScoped<IScenaristWriteRepository,ScenaristWriteRepository>();
-
-builder.Services.AddScoped<ICastReadRepository,CastReadRepository>();
-builder.Services.AddScoped<ICastWriteRepository,CastWriteRepository>();
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddSingleton(domain);
 
 
 
@@ -139,6 +131,6 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Auth}/{action=Login}/{id?}");
 
 app.Run();
