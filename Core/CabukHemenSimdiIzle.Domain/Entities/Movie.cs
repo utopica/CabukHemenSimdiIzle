@@ -13,15 +13,15 @@ namespace CabukHemenSimdiIzle.Domain.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public string? PictureUrl { get; set; }
-        public Int16 ReleaseDate { get; set; }
+        public short ReleaseDate { get; set; } //int16 -> short
         public string Language { get; set; }
         public Genre Genre { get; set; }
         public decimal? ImdbRating { get; set; }
         public bool? HasBeenWatched { get; set; }
         public string AgeRestriction { get; set; }
 
-        public Int32 Duration { get; set; }
-        
+        public short Duration { get; set; } //int32 -> short
+
         public ICollection<CastMovie> CastMovies { get; set; }
         public ICollection<DirectorMovie> DirectorMovies { get; set; }
         public ICollection<ScenaristMovie> ScenaristMovies { get; set; }
