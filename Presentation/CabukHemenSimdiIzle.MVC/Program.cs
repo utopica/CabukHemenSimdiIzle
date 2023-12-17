@@ -104,7 +104,14 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = new PathString("/Auth/AccessDenied");
 });
 
-
+//builder.Services.AddControllersWithViews()
+//    .AddRazorOptions(options =>
+//    {
+//        options.ViewLocationFormats.Add("/Views/{1}/{0}.cshtml");
+//        options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
+//        // Add your custom view location format for Directors/AddAsync
+//        options.ViewLocationFormats.Add("/Views/Directors/{0}.cshtml");
+//    });
 
 
 

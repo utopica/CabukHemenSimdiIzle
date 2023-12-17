@@ -7,8 +7,7 @@
         public string LastName { get; set; }
         public string CreatedByUserId { get; set; }
         public DateTimeOffset CreatedOn { get; set; }
-        public List<Guid> MovieIds { get; set; }
+        public bool IsDeleted { get; set; }
 
-        
     }
 }

@@ -10,6 +10,5 @@ namespace CabukHemenSimdiIzle.Domain.Dtos
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<Guid> MovieIds { get; set; }
     }
 }

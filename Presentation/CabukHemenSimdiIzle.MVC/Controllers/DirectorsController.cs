@@ -1,8 +1,10 @@
-﻿using CabukHemenSimdiIzle.Domain.Dtos;
-using CabukHemenSimdiIzle.Domain.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using CabukHemenSimdiIzle.MVC.Models;
+using CabukHemenSimdiIzle.Domain.Dtos;
+using CabukHemenSimdiIzle.Domain.Entities;
 using CabukHemenSimdiIzle.Persistence.Contexts;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CabukHemenSimdiIzle.MVC.Controllers
 {
@@ -14,31 +16,23 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
         {
             _appDbContext = appDbContext;
         }
+
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Add()
         {
-            return View();
+            return View(new DirectorViewModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAsync(DirectorAddDto directorAddDto)
+        public async Task<IActionResult> Add(DirectorAddDto directorAddDto, CancellationToken cancellationToken)
         {
-            
-            if(directorAddDto is null || string.IsNullOrEmpty(directorAddDto.FirstName) || string.IsNullOrEmpty(directorAddDto.LastName))
+            if (directorAddDto is null || string.IsNullOrEmpty(directorAddDto.FirstName) || string.IsNullOrEmpty(directorAddDto.LastName))
             {
-                return BadRequest("Please enter director informations.");
+                ModelState.AddModelError(string.Empty, "Please enter director information.");
+                return View(new DirectorViewModel()); // Return the form with errors
             }
 
-
             var id = Guid.NewGuid();
-
-            var directorMovies = directorAddDto.MovieIds?.Select(movieId => new DirectorMovie
-            {
-                DirectorId = id,
-                MovieId = movieId,
-                CreatedOn = DateTimeOffset.UtcNow,
-                CreatedByUserId = "testUser"
-            }).ToList();
 
             var director = new Director()
             {
@@ -48,12 +42,10 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
                 CreatedOn = DateTimeOffset.UtcNow,
                 CreatedByUserId = "testUser",
                 IsDeleted = false,
-                DirectorMovies = directorMovies
             };
 
-            await _appDbContext.Directors.AddAsync(director);
-
-            await _appDbContext.SaveChangesAsync();
+            await _appDbContext.Directors.AddAsync(director, cancellationToken);
+            await _appDbContext.SaveChangesAsync(cancellationToken);
 
             var directorViewModel = new DirectorViewModel
             {
@@ -62,10 +54,10 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
                 LastName = director.LastName,
                 CreatedOn = director.CreatedOn,
                 CreatedByUserId = director.CreatedByUserId,
-                MovieIds = directorMovies?.Select(dm => dm.MovieId).ToList() ?? new List<Guid>()
+                IsDeleted = director.IsDeleted,
             };
 
-            return View(directorViewModel);
+            return View("Add", directorViewModel); // Return to the form with successful model
         }
     }
 }
