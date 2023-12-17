@@ -27,8 +27,6 @@ namespace CabukHemenSimdiIzle.Domain.Entities
         public ICollection<ScenaristMovie> ScenaristMovies { get; set; }
         public ICollection<Comment> Comments { get; set; }
 
-        // public Guid CommentId { get; set; }          
-        //public Guid DirectorId { get; set; }
 
     }
 }

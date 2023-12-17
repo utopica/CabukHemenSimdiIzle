@@ -14,7 +14,7 @@ namespace CabukHemenSimdiIzle.Persistence.Configuration
         public void Configure(EntityTypeBuilder<ScenaristMovie> builder)
         {
       
-            builder.HasKey(x => new { x.ScenaristId, x.MovieID });
+            builder.HasKey(x => new { x.ScenaristId, x.MovieId });
 
 
             //Relationships
@@ -24,7 +24,7 @@ namespace CabukHemenSimdiIzle.Persistence.Configuration
 
             builder.HasOne(x => x.Movie)
                 .WithMany(x => x.ScenaristMovies)
-                .HasForeignKey(x => x.MovieID);
+                .HasForeignKey(x => x.MovieId);
 
             // CreatedByUserId
             builder.Property(x => x.CreatedByUserId).IsRequired();

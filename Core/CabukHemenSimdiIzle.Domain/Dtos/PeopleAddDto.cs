@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CabukHemenSimdiIzle.Domain.Dtos
 {
-    public class DirectorAddDto
+    public class PeopleAddDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

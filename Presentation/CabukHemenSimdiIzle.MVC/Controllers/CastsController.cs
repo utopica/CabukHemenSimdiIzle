@@ -1,18 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
-using CabukHemenSimdiIzle.MVC.Models;
-using CabukHemenSimdiIzle.Domain.Dtos;
+﻿using CabukHemenSimdiIzle.Domain.Dtos;
 using CabukHemenSimdiIzle.Domain.Entities;
+using CabukHemenSimdiIzle.MVC.Models;
 using CabukHemenSimdiIzle.Persistence.Contexts;
+using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Threading;
 
 namespace CabukHemenSimdiIzle.MVC.Controllers
 {
-    public class DirectorsController : Controller
+    public class CastsController : Controller
     {
         private readonly AppDbContext _appDbContext;
 
-        public DirectorsController(AppDbContext appDbContext)
+        public CastsController(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
@@ -24,9 +24,8 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(PeopleAddDto peopleAddDto,CancellationToken cancellationToken)
+        public async Task<IActionResult> Add(PeopleAddDto peopleAddDto, CancellationToken cancellationToken)
         {
-            
             if (peopleAddDto is null || string.IsNullOrEmpty(peopleAddDto.FirstName) || string.IsNullOrEmpty(peopleAddDto.LastName))
             {
                 ModelState.AddModelError(string.Empty, "Please enter director information.");
@@ -35,7 +34,7 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
 
             var id = Guid.NewGuid();
 
-            var director = new Director()
+            var cast = new Cast()
             {
                 Id = id,
                 FirstName = peopleAddDto.FirstName,
@@ -45,25 +44,21 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
                 IsDeleted = false,
             };
 
-
-            await _appDbContext.Directors.AddAsync(director, cancellationToken);
+            await _appDbContext.Casts.AddAsync(cast, cancellationToken);
             await _appDbContext.SaveChangesAsync(cancellationToken);
 
             var peopleViewModel = new PeopleViewModel
             {
-                Id = director.Id,
-                FirstName = director.FirstName,
-                LastName = director.LastName,
-                CreatedOn = director.CreatedOn,
-                CreatedByUserId = director.CreatedByUserId,
-                IsDeleted = director.IsDeleted,
+                Id = cast.Id,
+                FirstName = cast.FirstName,
+                LastName = cast.LastName,
+                CreatedOn = cast.CreatedOn,
+                CreatedByUserId = cast.CreatedByUserId,
+                IsDeleted = cast.IsDeleted,
 
             };
 
-
-            return View(peopleViewModel); 
-            
-          
+            return View(peopleViewModel);
         }
     }
 }

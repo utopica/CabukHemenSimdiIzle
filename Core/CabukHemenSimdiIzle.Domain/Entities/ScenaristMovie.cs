@@ -12,7 +12,7 @@ namespace CabukHemenSimdiIzle.Domain.Entities
     {
         public Guid ScenaristId { get; set; }
         public Scenarist Scenarist { get; set; }
-        public Guid MovieID { get; set; }
+        public Guid MovieId { get; set; }
         public Movie Movie { get; set; }
         public string CreatedByUserId { get; set; }
         public DateTimeOffset CreatedOn { get; set; }

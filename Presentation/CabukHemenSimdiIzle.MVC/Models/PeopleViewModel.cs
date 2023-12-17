@@ -1,6 +1,6 @@
 ﻿namespace CabukHemenSimdiIzle.MVC.Models
 {
-    public class DirectorViewModel
+    public class PeopleViewModel
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
