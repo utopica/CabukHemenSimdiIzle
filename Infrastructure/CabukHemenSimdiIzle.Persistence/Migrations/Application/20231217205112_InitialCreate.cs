@@ -183,16 +183,16 @@ namespace CabukHemenSimdiIzle.Persistence.Migrations.Application
                 columns: table => new
                 {
                     ScenaristId = table.Column<Guid>(type: "uuid", nullable: false),
-                    MovieID = table.Column<Guid>(type: "uuid", nullable: false),
+                    MovieId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedByUserId = table.Column<string>(type: "character varying(75)", maxLength: 75, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ScenaristMovies", x => new { x.ScenaristId, x.MovieID });
+                    table.PrimaryKey("PK_ScenaristMovies", x => new { x.ScenaristId, x.MovieId });
                     table.ForeignKey(
-                        name: "FK_ScenaristMovies_Movies_MovieID",
-                        column: x => x.MovieID,
+                        name: "FK_ScenaristMovies_Movies_MovieId",
+                        column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -220,9 +220,9 @@ namespace CabukHemenSimdiIzle.Persistence.Migrations.Application
                 column: "MovieId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ScenaristMovies_MovieID",
+                name: "IX_ScenaristMovies_MovieId",
                 table: "ScenaristMovies",
-                column: "MovieID");
+                column: "MovieId");
         }
 
         /// <inheritdoc />

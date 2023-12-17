@@ -339,7 +339,7 @@ namespace CabukHemenSimdiIzle.Persistence.Migrations.Application
                     b.Property<Guid>("ScenaristId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("MovieID")
+                    b.Property<Guid>("MovieId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("CreatedByUserId")
@@ -350,9 +350,9 @@ namespace CabukHemenSimdiIzle.Persistence.Migrations.Application
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.HasKey("ScenaristId", "MovieID");
+                    b.HasKey("ScenaristId", "MovieId");
 
-                    b.HasIndex("MovieID");
+                    b.HasIndex("MovieId");
 
                     b.ToTable("ScenaristMovies", (string)null);
                 });
@@ -410,7 +410,7 @@ namespace CabukHemenSimdiIzle.Persistence.Migrations.Application
                 {
                     b.HasOne("CabukHemenSimdiIzle.Domain.Entities.Movie", "Movie")
                         .WithMany("ScenaristMovies")
-                        .HasForeignKey("MovieID")
+                        .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
