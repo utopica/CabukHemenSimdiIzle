@@ -1,5 +1,4 @@
-﻿
-body {
+﻿body {
     background-color: #121212; /* Dark theme background */
     color: #fff;
 }
@@ -27,7 +26,6 @@ body {
     margin-left: 10px;
 }
 
-
 .film-card-container {
     display: flex;
     flex-direction: row-reverse; /* List items from right to left */
@@ -47,11 +45,8 @@ body {
 }
 
     .film-card:hover {
-        transform: scale(1.1);
-        filter: grayscale(0) brightness(1.2);
-        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        transform: scale(1.1) perspective(2000px) rotateZ(360deg);
     }
-
 
     .film-card img {
         max-width: 100%;

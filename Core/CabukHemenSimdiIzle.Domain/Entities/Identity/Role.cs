@@ -11,6 +11,7 @@ namespace CabukHemenSimdiIzle.Domain.Entities.Identity
 {
     public class Role : IdentityRole<Guid>
     {
-
+        public const string Admin = "Admin";
+        public const string Customer = "Customer";
     }
 }

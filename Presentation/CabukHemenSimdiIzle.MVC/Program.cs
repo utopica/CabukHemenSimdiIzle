@@ -69,6 +69,7 @@ builder.Services.AddSession();
 builder.Services.AddIdentity<User, Role>(options =>
 {
     // User Password Options
+    
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 6;
     options.Password.RequiredUniqueChars = 0;

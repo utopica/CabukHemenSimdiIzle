@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using Resend;
 using CabukHemenSimdiIzle.MVC.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 
 namespace CabukHemenSimdiIzle.MVC.Controllers;
 
@@ -180,4 +182,13 @@ public class AuthController : Controller
 
         return RedirectToAction("Index", controllerName: "Home");
     }
+    public async Task<IActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        // Optionally clear the existing external cookie
+        await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+        return RedirectToAction("Index", "Home");
+    }
+
 }
