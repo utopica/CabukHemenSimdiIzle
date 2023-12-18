@@ -145,11 +145,12 @@ public class AuthController : Controller
     {
         if (User.Identity.IsAuthenticated)
         {
+            TempData["ToastMessage"] = "SucessFully Logged!"; 
             return RedirectToAction("Index", "Home");
         }
 
         var loginViewModel = new AuthLoginVM();
-
+        _toastNotification.AddSuccessToastMessage("You have sucesfully login it");
         return View(loginViewModel);
     }
 
@@ -173,6 +174,7 @@ public class AuthController : Controller
 
         if (!loginResult.Succeeded)
         {
+            TempData["ToastMessage"] = "SucessFully Logged!";
             _toastNotification.AddErrorToastMessage("Your email or password is incorrect.");
 
             return View(loginViewModel);
@@ -184,9 +186,12 @@ public class AuthController : Controller
     }
     public async Task<IActionResult> Logout()
     {
+
         await _signInManager.SignOutAsync();
-        // Optionally clear the existing external cookie
+
+        TempData["ToastMessage"] = "GoodBye :(";
         await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
 
         return RedirectToAction("Index", "Home");
     }
