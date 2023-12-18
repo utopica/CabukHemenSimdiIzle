@@ -4,6 +4,7 @@ namespace CabukHemenSimdiIzle.MVC.Models
 {
     public class MovieViewModel
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string? PictureUrl { get; set; }

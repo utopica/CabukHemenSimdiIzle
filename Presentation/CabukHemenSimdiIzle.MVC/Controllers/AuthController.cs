@@ -178,6 +178,6 @@ public class AuthController : Controller
 
         _toastNotification.AddSuccessToastMessage($"Welcome {user.UserName}!");
 
-        return RedirectToAction("Index", controllerName: "Students");
+        return RedirectToAction("Index", controllerName: "Home");
     }
 }
