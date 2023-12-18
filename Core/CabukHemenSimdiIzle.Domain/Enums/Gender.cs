@@ -12,5 +12,6 @@ namespace CabukHemenSimdiIzle.Domain.Enums
         Male = 1,
         NonBinary = 2,
         Unknown = 3,
+        AttackHelikopter = 4
     }
 }
