@@ -366,3 +366,6 @@ Presentation/CabukHemenSimdiIzle.MVC/appsettings.json
 Infrastructure/CabukHemenSimdiIzle.Persistence/Contexts/AppDbContextFactory.cs
 Infrastructure/CabukHemenSimdiIzle.Persistence/Contexts/IdentityDbContextFactory.cs
 Presentation/CabukHemenSimdiIzle.MVC/Program.cs
+Presentation/CabukHemenSimdiIzle.MVC/Program.cs
+Infrastructure/CabukHemenSimdiIzle.Persistence/Contexts/IdentityDbContextFactory.cs
+Infrastructure/CabukHemenSimdiIzle.Persistence/Contexts/AppDbContextFactory.cs
