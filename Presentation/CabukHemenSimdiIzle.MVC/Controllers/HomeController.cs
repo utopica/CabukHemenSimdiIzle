@@ -1,4 +1,6 @@
-﻿using CabukHemenSimdiIzle.MVC.Models;
+﻿using CabukHemenSimdiIzle.Domain.Entities;
+using CabukHemenSimdiIzle.Domain.Enums;
+using CabukHemenSimdiIzle.MVC.Models;
 using CabukHemenSimdiIzle.Persistence.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +13,6 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
     {
 
         private readonly AppDbContext _appDbContext;
-
         public HomeController(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
@@ -30,7 +31,6 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
                     // Add other properties as needed
                 })
                 .ToList();
-
             return View(movies);
         }
 
@@ -58,14 +58,61 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
                    
                 })
                 .FirstOrDefault();
-
             if (movie == null)
             {
                 return NotFound();
             }
-
             return View(movie);
         }
+        [HttpGet]
+        [Route("Home/MovieGenre/{genre}")]
+        public IActionResult MovieGenre(Genre? genre)
+        {
+            if (genre == null)
+            {
+                return BadRequest();
+            }
+            List<MovieViewModel> movies = _appDbContext.Movies.Where(x => x.Genre == genre).Select(movie => new MovieViewModel
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                PictureUrl = movie.PictureUrl,
+                ReleaseDate = movie.ReleaseDate,
+                // Add other properties as needed
+            }).ToList();
+            /*if(movies.Count == 0 || movies == null)
+            {
+                //Or we dont have this movies view page
+                return NotFound();
+            }*/
+            return View(movies);
+        }
+
+        [HttpGet]
+        [Route("Home/LatestMovie")]
+        public IActionResult LatestMovies()
+        {
+           
+            List<MovieViewModel> movies = _appDbContext.Movies.OrderBy(x=> x.ReleaseDate).Select(movie => new MovieViewModel
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                PictureUrl = movie.PictureUrl,
+                ReleaseDate = movie.ReleaseDate,
+                // Add other properties as needed
+            }).ToList();
+            /*if(movies.Count == 0 || movies == null)
+            {
+                //Or we dont have this movies view page
+                return NotFound();
+            }*/
+            
+            return View(movies);
+        }
+
+       
     }
 }
 

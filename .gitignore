@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 Presentation/CabukHemenSimdiIzle.MVC/appsettings.json
 *.xml
+Infrastructure/CabukHemenSimdiIzle.Persistence/Contexts/AppDbContextFactory.cs
+Infrastructure/CabukHemenSimdiIzle.Persistence/Contexts/IdentityDbContextFactory.cs
+Presentation/CabukHemenSimdiIzle.MVC/Program.cs

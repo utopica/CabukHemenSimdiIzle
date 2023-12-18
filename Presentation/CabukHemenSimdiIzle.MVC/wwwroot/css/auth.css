@@ -1,0 +1,50 @@
+﻿
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header-text {
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 7px 7px 12px rgba(0, 0, 0, 1); /* Add text shadow for visibility */
+}
+
+form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+label {
+    color: white;
+}
+
+span {
+    color: red;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-top: 10px;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+.register-link {
+    margin-top: 20px;
+}
+
+.film-emoji {
+    font-size: 40px;
+}

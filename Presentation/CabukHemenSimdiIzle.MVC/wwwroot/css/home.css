@@ -1,0 +1,80 @@
+﻿
+body {
+    background-color: #121212; /* Dark theme background */
+    color: #fff;
+}
+
+.navbar {
+    background-color: #1a1a1a; /* Navbar background color */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 30px;
+}
+
+.navbar-nav {
+    font-size: 23px;
+    margin-left: 400px;
+}
+
+.navbar-text {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 110px;
+    margin-left: 10px;
+}
+
+
+.film-card-container {
+    display: flex;
+    flex-direction: row-reverse; /* List items from right to left */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.film-card {
+    background-color: #333; /* Card background color */
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+    flex: 0 0 calc(33.3333% - 20px); /* Responsive width, adjust as needed */
+    max-width: calc(33.3333% - 20px); /* Responsive width, adjust as needed */
+    border: 1px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .film-card:hover {
+        transform: scale(1.1);
+        filter: grayscale(0) brightness(1.2);
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+
+    .film-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .film-card a {
+        text-decoration: none; /* Link without underline */
+        color: #LightGray; /* Link color */
+    }
+
+        .film-card a:hover {
+            color: #fff; /* Change color on hover */
+        }
+
+    .film-card .card-title {
+        font-size: 28px; /* Font size */
+        font-family: 'Raleway', sans-serif; /* Modern and artistic font */
+        color: #LightGray;
+        text-align: center; /* Center-align the text */
+        margin: 10px 0; /* Add margin for better spacing */
+    }
+
+    .film-card .card-body {
+        padding: 15px;
+    }

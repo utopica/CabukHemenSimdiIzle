@@ -1,95 +1,27 @@
 ﻿@model CabukHemenSimdiIzle.MVC.ViewModels.AuthLoginVM
+    <body style="background: url('https://wallpapercave.com/wp/wp1945897.jpg') center/cover fixed; background-blur: 700px; background-color: black; color: white; margin: 0; padding: 0; align-items: center; justify-content: center; height: 100vh;">
+        <div class="container">
+            <div class="header-text">
+                🎬 CabukHemenFilmİzle 🎬
+            </div>
+            <form asp-action="Login" asp-controller="Auth" method="post">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input asp-for="Email" type="email" class="form-control" id="Email" placeholder="Email">
+                    <span asp-validation-for="Email"></span>
+                </div>
 
-<style>
-    body {
-        background: url('https://wallpapercave.com/wp/wp1945897.jpg') center/cover fixed;
-        background-blur: 700px;
-        background-color: black;
-        color: white;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Password">
+                    <span asp-validation-for="Password"></span>
+                </div>
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+                <button type="submit" class="btn btn-primary">Login</button>
 
-    .header-text {
-        font-size: 80px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color: white;
-        text-shadow:7px 7px 12px rgba(0, 0, 0, 1); /* Add text shadow for visibility */
-    }
-
-    form {
-        background: rgba(0, 0, 0, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-        width: 300px;
-    }
-
-    label {
-        color: white;
-    }
-
-    span {
-        color: red;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        margin-top: 10px;
-    }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-
-    .register-link {
-        margin-top: 20px;
-    }
-
-    .film-emoji {
-        font-size: 40px;
-    }
-</style>
-
-
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-
-<div class="container">
-    <div class="header-text">
-        🎬 CabukHemenFilmİzle 🎬
-    </div>
-    <form asp-action="Login" asp-controller="Auth" method="post">
-        <div class="form-group">
-            <label for="Email">Email</label>
-            <input asp-for="Email" type="email" class="form-control" id="Email" placeholder="Email">
-            <span asp-validation-for="Email"></span>
+                <div class="register-link">
+                    <p>Don't have an account? <a class="btn btn-success" asp-controller="Auth" asp-action="Register">Register</a></p>
+                </div>
+            </form>
         </div>
-
-        <div class="form-group">
-            <label for="Password">Password</label>
-            <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Password">
-            <span asp-validation-for="Password"></span>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Login</button>
-
-        <div class="register-link">
-            <p>Don't have an account? <a class="btn btn-success" asp-controller="Auth" asp-action="Register">Register</a></p>
-        </div>
-    </form>
-</div>
+    </body>
