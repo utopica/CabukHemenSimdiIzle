@@ -25,29 +25,30 @@
     margin-right: 110px;
     margin-left: 10px;
 }
-
 .film-card-container {
     display: flex;
-    flex-direction: row-reverse; /* List items from right to left */
+    flex-direction: row-reverse;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .film-card {
-    background-color: #333; /* Card background color */
+    background-color: #333;
     margin: 10px;
     transition: transform 0.3s ease-in-out;
-    flex: 0 0 calc(33.3333% - 20px); /* Responsive width, adjust as needed */
-    max-width: calc(33.3333% - 20px); /* Responsive width, adjust as needed */
+    flex: 0 0 calc(33.3333% - 20px);
+    max-width: calc(33.3333% - 20px);
     border: 1px solid #444;
     border-radius: 8px;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
     .film-card:hover {
-        transform: scale(1.1) perspective(2000px) rotateZ(360deg);
+        transform: scale(1.2) perspective(1000px) rotateX(20deg);
+        z-index: 2; /* Set a higher z-index on hover */
     }
-
     .film-card img {
         max-width: 100%;
         height: auto;
