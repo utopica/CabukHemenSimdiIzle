@@ -39,7 +39,9 @@
         {
             <div class="card film-card">
                 <a asp-controller="Home" asp-action="Detail" asp-route-id="@movie.Id">
-                    <img src="@movie.PictureUrl.Split("||").FirstOrDefault()" class="card-img-top" alt="@movie.Title">
+                    <div class="card-img-container">
+                        <img src="@movie.PictureUrl.Split("||").FirstOrDefault()" class="card-img-top" alt="@movie.Title">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">@movie.Title</h5>
                     </div>
