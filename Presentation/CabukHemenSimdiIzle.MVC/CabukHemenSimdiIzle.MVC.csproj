@@ -29,5 +29,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Auth\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\" />
   </ItemGroup>
 </Project>

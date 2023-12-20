@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="@Model.PictureUrl" class="film-image" alt="@Model.Title">
+                <img src="@Model.PictureUrl.Split("||").FirstOrDefault()" class="film-image" alt="@Model.Title">
             </div>
             <div class="col-md-6 film-details">
                 <h2>@Model.Title</h2>
@@ -64,6 +64,7 @@
                 <!-- Diğer detayları buraya ekleyebilirsiniz -->
             </div>
         </div>
+        <iframe width="560" height="315" src="@Model.PictureUrl.Split("||")[1]" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

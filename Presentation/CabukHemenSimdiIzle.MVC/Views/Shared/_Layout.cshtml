@@ -21,7 +21,20 @@
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
     <!-- auth Css -->
     <link rel="stylesheet" href="~/css/auth.css" asp-append-version="true" />
+    <!-- Add this link to your HTML head to include the Raleway font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap">
 
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+
+
+    <style>
+
+      
+        #myNavbar {
+            background-color: transparent
+        }
+
+    </style>
 
 
     <!-- Toaster Notification -->
@@ -30,8 +43,20 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">CabukHemenFilmİzle</a>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="myNavbar">
+            
+
+            @if (ViewBag.title == "Register")
+            {
+                <img width="10%" src="~/images/logos/logo4.png" />
+            }
+            else
+            {
+                <img width="10%" src="~/images/logos/logo4.png" />
+            }
+            <a class="navbar-brand" id="myHeaderTitle" asp-controller="Home" asp-action="Index">
+                <p style="text-align:center">Cabuk Hemen<br />Film İzle</p>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

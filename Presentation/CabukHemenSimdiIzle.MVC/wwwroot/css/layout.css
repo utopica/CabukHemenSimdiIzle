@@ -1,0 +1,9 @@
+﻿/* CSS dosyası: style.css */
+
+/* Font yükleme */
+@font-face {
+    font-family: 'NetflixFont';
+    src: url('/wwwroot/fonts/netflix-font/BebasNeue.woff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
