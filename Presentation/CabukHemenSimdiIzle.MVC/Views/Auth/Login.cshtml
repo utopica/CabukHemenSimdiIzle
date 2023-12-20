@@ -1,29 +1,47 @@
-﻿@model CabukHemenSimdiIzle.MVC.ViewModels.AuthLoginVM
+﻿@using CabukHemenSimdiIzle.Domain.Enums
+@model CabukHemenSimdiIzle.MVC.ViewModels.AuthLoginVM
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/custom-login-style.css" rel="stylesheet">
+</head>
+<body>
 
-<body style="background: url('https://wallpapercave.com/wp/wp1945897.jpg') center/cover fixed; background-blur: 700px; background-color: black; color: white; margin: 0; padding: 0; align-items: center; justify-content: center; height: 100vh;">
+    <!-- Eklenen kısım -->
+    <video id="video-background" autoplay muted loop>
+        <source src="https://cdn.coverr.co/videos/coverr-watching-a-movie-2283/1080p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="container">
         <div class="header-text">
-            🎬 CabukHemenFilmİzle 🎬
+            CabukHemenFilmİzle
         </div>
-        <form asp-action="Login" asp-controller="Auth" method="post">
-            <div class="form-group">
-                <label for="Email">Email</label>
-                <input asp-for="Email" type="email" class="form-control" id="Email" placeholder="Email">
-                <span asp-validation-for="Email"></span>
-            </div>
+        <div class="form-container">
+            <form asp-action="Login" asp-controller="Auth" method="post">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input asp-for="Email" type="email" class="form-control" id="Email" placeholder="Email">
+                    <span asp-validation-for="Email"></span>
+                </div>
 
-            <div class="form-group">
-                <label for="Password">Password</label>
-                <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Password">
-                <span asp-validation-for="Password"></span>
-            </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Password">
+                    <span asp-validation-for="Password"></span>
+                </div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
 
-            <div class="register-link">
-                <p>Don't have an account? <a class="btn btn-success" asp-controller="Auth" asp-action="Register">Register</a></p>
-            </div>
-        </form>
+                <div class="register-link">
+                    <p>Don't have an account? <a class="btn btn-success" asp-controller="Auth" asp-action="Register">Register</a></p>
+                </div>
+            </form>
+        </div>
     </div>
+
 </body>
+</html>

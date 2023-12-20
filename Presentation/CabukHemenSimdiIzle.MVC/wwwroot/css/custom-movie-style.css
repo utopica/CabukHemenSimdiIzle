@@ -1,0 +1,67 @@
+﻿/* custom-movie-style.css */
+
+body {
+    background-color: dimgrey;
+    color: dimgrey;
+}
+
+
+.header-text {
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 7px 7px 12px rgba(0, 0, 0, 1);
+}
+.container {
+    display: revert;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+}
+
+.card {
+    width: 20½;
+    max-width: 1000px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: blue;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+.btn-primary {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border: 1px solid #0056b3;
+    }
+
+

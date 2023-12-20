@@ -1,20 +1,24 @@
 ﻿@using CabukHemenSimdiIzle.Domain.Enums;
 @model CabukHemenSimdiIzle.MVC.Models.MovieViewModel
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Add Movie</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/custom-movie-style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Add Movie</h1>
+    <div class="custom-container">
+        <h1 class="header-text text-center">Add Movie</h1>
         <hr />
+      
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Movie Information</h5>
+               
 
                 <form method="post" asp-action="Add">
                     <div class="form-group row">
@@ -41,7 +45,7 @@
                     <div class="form-group row">
                         <label for="releaseDate" class="col-sm-2 col-form-label">Release Date:</label>
                         <div class="col-sm-10">
-                            <input asp-for="ReleaseDate" type="int" class="form-control" id="releaseDate" required>
+                            <input asp-for="ReleaseDate" type="text" class="form-control" id="releaseDate">
                         </div>
                     </div>
 
@@ -54,7 +58,7 @@
 
                     <div class="form-group">
                         <label for="genre">Genre:</label>
-                        <select id="genre" name="genre">
+                        <select id="genre" name="genre" class="form-control">
                             @foreach (Genre genre in Enum.GetValues(typeof(Genre)))
                             {
                                 <option value="@genre">@genre</option>
@@ -83,8 +87,6 @@
                         </div>
                     </div>
 
-                    
-
                     <div class="form-group row">
                         <label for="directorIds" class="col-sm-2 col-form-label">Director IDs:</label>
                         <div class="col-sm-10">
@@ -105,8 +107,6 @@
                             <input asp-for="CastIds" type="text" class="form-control" id="castIds">
                         </div>
                     </div>
-
-                   
 
                     <button type="submit" class="btn btn-primary">Save Movie</button>
                 </form>
