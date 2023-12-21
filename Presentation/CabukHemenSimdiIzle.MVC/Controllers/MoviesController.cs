@@ -106,7 +106,7 @@ namespace CabukHemenSimdiIzle.MVC.Controllers
                 IsDeleted = false,
 
             };
-
+          
 
             await _appDbContext.Movies.AddAsync(movie, cancellationToken);
 

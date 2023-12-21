@@ -26,6 +26,15 @@ public class AuthController : Controller
         _environment = environment;
     }
 
+
+    [HttpGet]
+    public IActionResult Index()
+    {
+
+        return View();
+    }
+
+
     [HttpGet]
     public IActionResult Register()
     {
