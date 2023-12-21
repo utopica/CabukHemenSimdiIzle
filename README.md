@@ -48,10 +48,10 @@ Welcome to Çabuk Hemen Şimdi İzle, the ultimate film streaming platform desig
 
 
 ## Potential Project Additions Ahead
-- **  **
- 
-     
-- **  **
+- To enhance user experience, individual folders for each user to save their favorite films will be created.
+-In order to provide insights into the overall performance of the platform, site-wide statistics will be added. Additionally, user ratings for films will be calculated and displayed.
+-For easy sharing and embedding of films on external platforms, embedded film links will be generated for each movie.
+
    
 
 
