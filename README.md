@@ -52,6 +52,8 @@ Welcome to Çabuk Hemen Şimdi İzle, the ultimate film streaming platform desig
   
    -Controller
 
+   -Toast Message System
+
    -Movie link systems
   
    -Website Frontend Designs
@@ -77,6 +79,21 @@ Welcome to Çabuk Hemen Şimdi İzle, the ultimate film streaming platform desig
 
 -For easy sharing and embedding of films on external platforms, embedded film links will be generated for each movie.
 
-   
+## Attachments(On-site images)
 
+Register Page
+<h1>
+ <div id="header" align="center"> 
+ <img src="https://cdn.discordapp.com/attachments/713714159589654598/1187389306214555679/image.png?ex=6596b577&is=65844077&hm=71614c49801fbb27d06749652e817a0fb7bccd053d7118d2f40f4b3c9b67f33d&" width="800px"/> 
+ </h1>
+ Add Cast Page
+ <h1>
+ <div id="header" align="center"> 
+ <img src="https://cdn.discordapp.com/attachments/713714159589654598/1187389583042805811/image.png?ex=6596b5b9&is=658440b9&hm=17dcb426c38c45d15456c214d85a02b8bc694934982da5fdaf55161b6b2e834c&" width="800px"/> 
+ </h1>
+ Film Detail Page
+ <h1>
+ <div id="header" align="center"> 
+ <img src="https://cdn.discordapp.com/attachments/713714159589654598/1187388864067805284/image.png?ex=6596b50d&is=6584400d&hm=54486f2ff9e73dc947f6946f0f1498f8dfbb0ff6e6d00328e13e2d374245c744&" width="800px"/> 
+ </h1>
 
